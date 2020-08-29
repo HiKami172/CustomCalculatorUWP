@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="Calculator.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Calculator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+            <TextBlock Margin="0,25,0,0" TextAlignment="Center">Введите число:</TextBlock>
+            <TextBox AutomationProperties.Name="txtNumber" x:Name="txtNumber" 
+     Margin="0,5,0,0" FontSize="18" Width="380"></TextBox>
+
+            <TextBlock Margin="0,25,0,0" TextAlignment="Center">Результат:</TextBlock>
+            <TextBox AutomationProperties.Name="txtResult" x:Name="txtResult" 
+     TextAlignment="Center" FontSize="18" Width="380" IsEnabled="False" RequestedTheme="Default"></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Button AutomationProperties.Name="btnAC" x:Name="btnAC" Margin="20,20,20,0" HorizontalAlignment="Center"
+     Click="btnAC_Click" Height="50" Width="50" Content="AC"/>
+                <Button AutomationProperties.Name="btnPlus" x:Name="btnPlus" Margin="0,20,20,0" HorizontalAlignment="Center"
+     Click="btnPlus_Click" Height="50" Width="50" Content="+"/>
+                <Button AutomationProperties.Name="btnMinus" x:Name="btnMinus" Margin="0,20,20,0" HorizontalAlignment="Center"
+     Click="btnMinus_Click" Height="50" Width="50" Content="-"/>
+                <Button AutomationProperties.Name="btnMultiple" x:Name="btnMulpiple" Margin="0,20,20,0" HorizontalAlignment="Center"
+     Click="btnMulpiple_Click" Height="50" Width="50" Content="*"/>
+                <Button AutomationProperties.Name="btnDiv" x:Name="btnDiv" Margin="0,20,20,0" HorizontalAlignment="Center"
+     Click="btnDiv_Click" Height="50" Width="50" Content="/"/>
+                <Button AutomationProperties.Name="btnGetSquare" x:Name="btnGetSquare" Height="50" Width="50" 
+     Margin="0,20,20,0" HorizontalAlignment="Center" Click="btnGetSquare_Click" Content="x^2"/>
+                <Button AutomationProperties.Name="btnEq" x:Name="btnEq" Margin="0,20,20,0" HorizontalAlignment="Center"
+     Click="btnEq_Click" Height="50" Width="50" Content="="/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
