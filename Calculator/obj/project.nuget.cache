@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aYJE1p6ORXkuq/aonpyx6dfxgZCFIHYsoZCUHhqvBJbrii0nhBW5rw+4VTKW4Yp2OaeTyb/a5fzH9J/Hket9Xg==",
+  "dgSpecHash": "YEbVZMinZ/I2bFZYezQh88voDlEe7dOEthP66mqqBOV45uKTpeTXS7lS4xvVNnfLqzriFJmEH+yJtszbxuxUQQ==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Visual_Studio\\Calculator\\Calculator.csproj",
+  "projectFilePath": "D:\\Projects\\Visual_Studio\\CalculatorAutomationTest\\Calculator\\Calculator.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.8-rel-28605-00\\microsoft.net.native.compiler.2.2.8-rel-28605-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.10\\microsoft.net.uwpcoreruntimesdk.2.2.10.nupkg.sha512",

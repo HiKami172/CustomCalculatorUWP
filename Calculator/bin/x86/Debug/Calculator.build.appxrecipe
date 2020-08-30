@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>6e5f3ee8-9f6a-43c5-8bdd-de9087470117</PackageIdentityName>
     <PackageIdentityPublisher>CN=FlyingDog</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\Projects\Visual_Studio\Calculator\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\Calculator.exe">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\Calculator.exe">
       <PackagePath>entrypoint\Calculator.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
@@ -34,52 +34,52 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\Calculator.xr.xml">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\Calculator.xr.xml">
       <PackagePath>Calculator.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\Core\Calculator.exe">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\Core\Calculator.exe">
       <PackagePath>Calculator.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

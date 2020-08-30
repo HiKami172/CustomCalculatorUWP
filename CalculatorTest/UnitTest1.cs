@@ -8,6 +8,11 @@ namespace CalculatorTest
     [TestClass]
     public class UnitTest1
     {
+        private double Truncate(double value, int precision)
+        {
+            var p = 1 / Math.Pow(10, precision);
+            return value - (value % p);
+        }
         protected const string AppDriverUrl = "http://127.0.0.1:4723";
         protected static RemoteWebDriver AppSession;
         Random random = new Random();
@@ -49,7 +54,8 @@ namespace CalculatorTest
             txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            Assert.AreEqual((n + k).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double res = n + k;
+            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
         }
         [TestMethod]
         public void Minus()
@@ -74,7 +80,8 @@ namespace CalculatorTest
             txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            Assert.AreEqual((n - k).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double res = n - k;
+            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
         }
         [TestMethod]
         public void Multiply()
@@ -99,7 +106,8 @@ namespace CalculatorTest
             txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            Assert.AreEqual((n * k).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double res = n * k;
+            Assert.AreEqual(Truncate(res,15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
         }
         [TestMethod]
         public void Division()
@@ -124,7 +132,8 @@ namespace CalculatorTest
             txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            Assert.AreEqual((n / k).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double res = n / k;
+            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
         }
         [TestMethod]
         public void DivisionByZero()
@@ -165,7 +174,8 @@ namespace CalculatorTest
             txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            Assert.AreEqual((n * n).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double res = n * n;
+            Assert.AreEqual(Truncate(res,15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
         }
         [TestMethod]
         public void AC()
@@ -216,7 +226,8 @@ namespace CalculatorTest
             txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            Assert.AreEqual((n + k).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")) + '*', txtResultTextElement.Text);
+            double res = n + k;
+            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")) + '*', txtResultTextElement.Text);
         }
         [TestMethod]
         public void SquareAfterBinOper()
@@ -241,7 +252,8 @@ namespace CalculatorTest
             txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            Assert.AreEqual(((n + k) * (n + k)).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double res = (n + k) * (n + k);
+            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
         }
         [TestMethod]
         public void OperationWithPrevRes()
@@ -261,7 +273,8 @@ namespace CalculatorTest
             txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            Assert.AreEqual((n*n*n*n).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double res = n * n * n * n;
+            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
         }
 
     }

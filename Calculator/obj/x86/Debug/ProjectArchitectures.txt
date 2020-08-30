@@ -1,1 +1,1 @@
-D:\Projects\Visual_Studio\Calculator\Calculator.csproj;x86
+D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Calculator.csproj;x86

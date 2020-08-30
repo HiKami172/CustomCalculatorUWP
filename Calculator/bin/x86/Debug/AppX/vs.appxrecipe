@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>6e5f3ee8-9f6a-43c5-8bdd-de9087470117</PackageIdentityName>
     <PackageIdentityPublisher>CN=FlyingDog</PackageIdentityPublisher>
-    <IntermediateOutputPath>D:\Projects\Visual_Studio\Calculator\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>BC8D59E299B1AFAFD34E37AC5881ABBB2725389396B15CAB3198A68AE9D4E232</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>6e5f3ee8-9f6a-43c5-8bdd-de9087470117_1.0.0.0_x86__0krc4rn5z6t7c</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>6e5f3ee8-9f6a-43c5-8bdd-de9087470117_0krc4rn5z6t7c!App</RegisteredUserModeAppID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-08-29T00:07:08.289</Modified>
+      <Modified>2020-08-30T01:43:11.936</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\Calculator.exe">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\Calculator.exe">
       <PackagePath>entrypoint\Calculator.exe</PackagePath>
-      <Modified>2020-08-29T00:07:07.450</Modified>
+      <Modified>2020-08-30T01:43:11.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,67 +46,67 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T15:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2020-08-28T13:04:01.422</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2020-08-27T16:31:39.421</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-08-27T16:31:39.425</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-08-27T16:31:39.425</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-08-27T16:31:39.426</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-08-27T16:31:39.430</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-08-27T16:31:39.431</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2020-08-27T16:31:39.433</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\Calculator.xr.xml">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\Calculator.xr.xml">
       <PackagePath>Calculator.xr.xml</PackagePath>
       <Modified>2020-08-28T15:12:51.872</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-08-29T00:03:27.955</Modified>
+      <Modified>2020-08-30T01:43:11.012</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-08-29T00:03:27.955</Modified>
+      <Modified>2020-08-30T01:43:11.012</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T14:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <Modified>2020-08-28T13:28:13.609</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Projects\Visual_Studio\Calculator\bin\x86\Debug\Core\Calculator.exe">
+    <AppxPackagedFile Include="D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\bin\x86\Debug\Core\Calculator.exe">
       <PackagePath>Calculator.exe</PackagePath>
-      <Modified>2020-08-29T00:07:08.280</Modified>
+      <Modified>2020-08-30T01:43:11.930</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

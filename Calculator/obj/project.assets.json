@@ -8158,11 +8158,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Visual_Studio\\Calculator\\Calculator.csproj",
+      "projectUniqueName": "D:\\Projects\\Visual_Studio\\CalculatorAutomationTest\\Calculator\\Calculator.csproj",
       "projectName": "Calculator",
-      "projectPath": "D:\\Projects\\Visual_Studio\\Calculator\\Calculator.csproj",
+      "projectPath": "D:\\Projects\\Visual_Studio\\CalculatorAutomationTest\\Calculator\\Calculator.csproj",
       "packagesPath": "C:\\Users\\seimu\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Visual_Studio\\Calculator\\obj\\",
+      "outputPath": "D:\\Projects\\Visual_Studio\\CalculatorAutomationTest\\Calculator\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

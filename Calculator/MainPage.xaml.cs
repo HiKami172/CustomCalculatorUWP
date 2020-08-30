@@ -134,19 +134,19 @@ namespace Calculator
                 {
                     btnEq_Click(sender, e);
                     double k = Convert.ToDouble(txtResult.Text);
-                    txtResult.Text = Truncate(k * k, 16).ToString();
+                    txtResult.Text = Truncate(k * k, 15).ToString();
                     txtNumber.Text = String.Empty;
                     return;
                 }
                 double n = Convert.ToDouble(txtNumber.Text);
-                txtResult.Text = Truncate(n * n, 16).ToString();
+                txtResult.Text = Truncate(n * n, 15).ToString();
                 txtNumber.Text = String.Empty;
                 condition = Condition.result;
             }
             else if (condition == Condition.result)
             {
                 double n = Convert.ToDouble(txtResult.Text);
-                txtResult.Text = Truncate(n*n, 16).ToString();
+                txtResult.Text = Truncate(n*n, 15).ToString();
                 txtNumber.Text = String.Empty;
             }
             txtNumber.Focus(FocusState.Pointer);
@@ -206,7 +206,7 @@ namespace Calculator
             if (ResultTxt.Contains('/') && operand2 != 0)
             {
                 res = operand1 / operand2;
-                txtResult.Text = Truncate(res, 16).ToString();
+                txtResult.Text = Truncate(res, 15).ToString();
             }
             else if (ResultTxt.Contains('/') && operand2 == 0)
             {
@@ -220,17 +220,17 @@ namespace Calculator
             {
                 
                 res = (operand1 + operand2);
-                txtResult.Text = Truncate(res, 16).ToString();
+                txtResult.Text = Truncate(res, 15).ToString();
             }
             if (ResultTxt.Contains('-'))
             {
                 res = operand1 - operand2;
-                txtResult.Text = Truncate(res, 16).ToString();
+                txtResult.Text = Truncate(res, 15).ToString();
             }
             if (ResultTxt.Contains('*'))
             {
                 res = operand1 * operand2;
-                txtResult.Text = Truncate(res, 16).ToString();
+                txtResult.Text = Truncate(res, 15).ToString();
             }
                 txtNumber.Text = String.Empty;
             condition = Condition.result;
