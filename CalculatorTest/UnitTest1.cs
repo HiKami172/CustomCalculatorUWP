@@ -1,12 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Remote;
-using System.Threading;
 using System.Globalization;
+using System.Reflection.Emit;
+using OpenQA.Selenium;
+
 namespace CalculatorTest
 {
     [TestClass]
-    public class UnitTest1
+    public class OperationsTests
     {
         private double Truncate(double value, int precision)
         {
@@ -14,14 +16,20 @@ namespace CalculatorTest
             return value - (value % p);
         }
         protected const string AppDriverUrl = "http://127.0.0.1:4723";
+        protected const string AppID = "6e5f3ee8-9f6a-43c5-8bdd-de9087470117_0krc4rn5z6t7c!App";
+        protected TimeSpan TimeToWait = TimeSpan.FromSeconds(1);
         protected static RemoteWebDriver AppSession;
+        protected static IWebElement InputField;
+        protected static IWebElement ResultField;
         Random random = new Random();
         [ClassInitialize]
         public static void Setup(TestContext context)
         {
             DesiredCapabilities cap = new DesiredCapabilities();
-            cap.SetCapability("app", "6e5f3ee8-9f6a-43c5-8bdd-de9087470117_0krc4rn5z6t7c!App");
+            cap.SetCapability("app", AppID);
             AppSession = new RemoteWebDriver(new Uri(AppDriverUrl), cap);
+            InputField = AppSession.FindElementByName("txtNumber");
+            ResultField = AppSession.FindElementByName("txtResult");
             Assert.IsNotNull(AppSession);
         }
 
@@ -31,251 +39,266 @@ namespace CalculatorTest
             AppSession.Dispose();
             AppSession = null;
         }
+
         [TestMethod]
         public void Plus()
         {
-            double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand1 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand1.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnPlus").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
-            double k = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(k.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand2 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand2.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnEq").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double res = n + k;
-            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double result = operand1 + operand2;
+            string expectedResult = Truncate(result, 15).ToString(CultureInfo.GetCultureInfo("en-US"));
+            Assert.AreEqual(expectedResult, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void Minus()
         {
-            double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand1 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand1.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnMinus").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
-            double k = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(k.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand2 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand2.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnEq").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double res = n - k;
-            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double result = operand1 - operand2;
+            string expectedResult = Truncate(result, 15).ToString(CultureInfo.GetCultureInfo("en-US"));
+            Assert.AreEqual(expectedResult, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void Multiply()
         {
-            double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand1 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand1.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnMultiple").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
-            double k = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(k.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand2 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand2.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnEq").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double res = n * k;
-            Assert.AreEqual(Truncate(res,15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double result = operand1 * operand2;
+            string expectedResult = Truncate(result, 15).ToString(CultureInfo.GetCultureInfo("en-US"));
+            Assert.AreEqual(expectedResult, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void Division()
         {
-            double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand1 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand1.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnDiv").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
-            double k = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(k.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand2 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand2.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnEq").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double res = n / k;
-            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double result = operand1 / operand2;
+            string expectedResult = Truncate(result, 15).ToString(CultureInfo.GetCultureInfo("en-US"));
+            Assert.AreEqual(expectedResult, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void DivisionByZero()
         { 
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys("5");
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            InputField.Clear();
+            InputField.SendKeys("5");
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnDiv").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys("0");
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            InputField.Clear();
+            InputField.SendKeys("0");
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnEq").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
             Assert.AreEqual(String.Empty, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void Square()
         {
-            double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnGetSquare").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
-
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double res = n * n;
-            Assert.AreEqual(Truncate(res,15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double result = operand * operand;
+            string expectedResult = Truncate(result, 15).ToString(CultureInfo.GetCultureInfo("en-US"));
+            Assert.AreEqual(expectedResult, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void AC()
         {
             double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            InputField.Clear();
+            InputField.SendKeys(n.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
             
             AppSession.FindElementByName("btnGetSquare").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnAC").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
-
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
             Assert.AreEqual(String.Empty, txtResultTextElement.Text);
 
-            txtResultTextElement = AppSession.FindElementByName("txtNumber") as RemoteWebElement;
+            txtResultTextElement = InputField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
             Assert.AreEqual(String.Empty, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void SeqBinOper()
         {
-            double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand1 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand1.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnPlus").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
-            double k = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(k.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand2 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand2.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnMultiple").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double res = n + k;
-            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")) + '*', txtResultTextElement.Text);
+            double result = operand1 + operand2;
+            string expectedResult = Truncate(result, 15).ToString(CultureInfo.GetCultureInfo("en-US")) + '*';
+            Assert.AreEqual(expectedResult, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void SquareAfterBinOper()
         {
-            double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand1 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand1.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnPlus").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
-            double k = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(k.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand2 = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand2.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnGetSquare").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double res = (n + k) * (n + k);
-            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double result = (operand1 + operand2) * (operand1 + operand2);
+            string expectedResult = Truncate(result, 15).ToString(CultureInfo.GetCultureInfo("en-US"));
+            Assert.AreEqual(expectedResult, txtResultTextElement.Text);
         }
+
         [TestMethod]
         public void OperationWithPrevRes()
         {
-            double n = random.NextDouble();
-            AppSession.FindElementByName("txtNumber").Clear();
-            AppSession.FindElementByName("txtNumber").SendKeys(n.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            double operand = random.NextDouble();
+            InputField.Clear();
+            InputField.SendKeys(operand.ToString(CultureInfo.GetCultureInfo("en-US")));
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnGetSquare").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             AppSession.FindElementByName("btnGetSquare").Click();
-            AppSession.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            AppSession.Manage().Timeouts().ImplicitWait = TimeToWait;
 
             RemoteWebElement txtResultTextElement;
-            txtResultTextElement = AppSession.FindElementByName("txtResult") as RemoteWebElement;
+            txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double res = n * n * n * n;
-            Assert.AreEqual(Truncate(res, 15).ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")), txtResultTextElement.Text);
+            double result = operand * operand * operand * operand;
+            string expectedResult = Truncate(result, 15).ToString(CultureInfo.GetCultureInfo("en-US"));
+            Assert.AreEqual(expectedResult, txtResultTextElement.Text) ;
         }
-
     }
 }
