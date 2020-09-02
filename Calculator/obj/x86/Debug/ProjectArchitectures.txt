@@ -1,1 +1,0 @@
-D:\Projects\Visual_Studio\CalculatorAutomationTest\Calculator\Calculator.csproj;x86
