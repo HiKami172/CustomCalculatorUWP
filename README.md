@@ -22,4 +22,4 @@
 - Нажать кнопку "Запустить все" в  окне Test Explorer
 
 ### Информация о тест-кейсах, автоматизированных в тестовом проекте "CalculatorTest":
-https://docs.google.com/document/d/1dRSpHp9ci0NRsBbwphMJRrtM38ARr7kDDtclKT-5LoU/edit
+https://docs.google.com/document/d/1dRSpHp9ci0NRsBbwphMJRrtM38ARr7kDDtclKT-5LoU/edit?usp=sharing
