@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -31,11 +21,6 @@ namespace Calculator
         }
         Condition condition = Condition.none;
 
-        private double Truncate(double value, int precision)
-        {
-            var p = 1 / Math.Pow(10, precision);
-            return value - (value % p);
-        }
         private bool IsDouble(string text)
         {
             Double num = 0;
@@ -56,12 +41,13 @@ namespace Calculator
         {
             if(!IsDouble(txtNumber.Text))
             {
-                txtNumber.Text = String.Empty;
+                txtNumber.Text = string.Empty;
                 txtNumber.Focus(FocusState.Pointer);
                 return true;
             }
             return false;
         }
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -69,7 +55,7 @@ namespace Calculator
 
         private void btnMinus_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text != String.Empty)
+            if (txtNumber.Text != string.Empty)
             {
                 if (WrongInput())
                     return;
@@ -77,12 +63,12 @@ namespace Calculator
                 {
                     btnEq_Click(sender, e);
                     txtResult.Text += "-";
-                    txtNumber.Text = String.Empty;
+                    txtNumber.Text = string.Empty;
                 }
                 else
                 {
                     txtResult.Text = txtNumber.Text + "-";
-                    txtNumber.Text = String.Empty;
+                    txtNumber.Text = string.Empty;
                 }
             }
             else
@@ -98,7 +84,7 @@ namespace Calculator
 
         private void btnPlus_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text != String.Empty)
+            if (txtNumber.Text != string.Empty)
             {
                 if (WrongInput())
                     return;
@@ -106,12 +92,12 @@ namespace Calculator
                 {
                     btnEq_Click(sender, e);
                     txtResult.Text += "+";
-                    txtNumber.Text = String.Empty;
+                    txtNumber.Text = string.Empty;
                 }
                 else
                 {
                     txtResult.Text = txtNumber.Text + "+";
-                    txtNumber.Text = String.Empty;
+                    txtNumber.Text = string.Empty;
                 }
             }
             else
@@ -126,7 +112,7 @@ namespace Calculator
         }
         private void btnGetSquare_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text != String.Empty)
+            if (txtNumber.Text != string.Empty)
             {
                 if (WrongInput())
                     return;
@@ -134,27 +120,30 @@ namespace Calculator
                 {
                     btnEq_Click(sender, e);
                     double k = Convert.ToDouble(txtResult.Text);
-                    txtResult.Text = Truncate(k * k, 15).ToString();
-                    txtNumber.Text = String.Empty;
+                    double res1 = k * k;
+                    txtResult.Text = Math.Round(res1, 15).ToString();
+                    txtNumber.Text = string.Empty;
                     return;
                 }
                 double n = Convert.ToDouble(txtNumber.Text);
-                txtResult.Text = Truncate(n * n, 15).ToString();
-                txtNumber.Text = String.Empty;
+                double res = n * n;
+                txtResult.Text = Math.Round(res, 15).ToString();
+                txtNumber.Text = string.Empty;
                 condition = Condition.result;
             }
             else if (condition == Condition.result)
             {
                 double n = Convert.ToDouble(txtResult.Text);
-                txtResult.Text = Truncate(n*n, 15).ToString();
-                txtNumber.Text = String.Empty;
+                double res = n * n;
+                txtResult.Text = Math.Round(res, 15).ToString();
+                txtNumber.Text = string.Empty;
             }
             txtNumber.Focus(FocusState.Pointer);
         }
 
         private void btnMulpiple_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text != String.Empty)
+            if (txtNumber.Text != string.Empty)
             {
                 if (WrongInput())
                     return;
@@ -162,12 +151,12 @@ namespace Calculator
                 {
                     btnEq_Click(sender, e);
                     txtResult.Text += "*";
-                    txtNumber.Text = String.Empty;
+                    txtNumber.Text = string.Empty;
                 }
                 else
                 {
                     txtResult.Text = txtNumber.Text + "*";
-                    txtNumber.Text = String.Empty;
+                    txtNumber.Text = string.Empty;
                 }
             }
             else
@@ -183,20 +172,20 @@ namespace Calculator
 
         private void btnEq_Click(object sender, RoutedEventArgs e)
         {
-            if (condition != Condition.operation && txtNumber.Text != String.Empty && !WrongInput())
+            if (condition != Condition.operation && txtNumber.Text != string.Empty && !WrongInput())
             {
                 txtResult.Text = txtNumber.Text;
                 txtNumber.Focus(FocusState.Pointer);
-                txtNumber.Text = String.Empty;
+                txtNumber.Text = string.Empty;
                 return;
             }
             txtResult.Text += txtNumber.Text;
-                String ResultTxt = txtResult.Text;
-                String[] operands = ResultTxt.Split('/', '+', '-', '*');
+                string ResultTxt = txtResult.Text;
+                string[] operands = ResultTxt.Split('/', '+', '-', '*');
             if (!IsDouble(operands[0]) || !IsDouble(operands[1]))
             {
-                txtNumber.Text = String.Empty;
-                txtResult.Text = String.Empty;
+                txtNumber.Text = string.Empty;
+                txtResult.Text = string.Empty;
                 txtNumber.Focus(FocusState.Pointer);
                 return;
             }
@@ -206,12 +195,12 @@ namespace Calculator
             if (ResultTxt.Contains('/') && operand2 != 0)
             {
                 res = operand1 / operand2;
-                txtResult.Text = Truncate(res, 15).ToString();
+                txtResult.Text = Math.Round(res, 15).ToString();
             }
             else if (ResultTxt.Contains('/') && operand2 == 0)
             {
-                txtResult.Text = String.Empty;
-                txtNumber.Text = String.Empty;
+                txtResult.Text = string.Empty;
+                txtNumber.Text = string.Empty;
                 condition = Condition.none;
                 txtNumber.Focus(FocusState.Pointer);
                 return;
@@ -220,26 +209,26 @@ namespace Calculator
             {
                 
                 res = (operand1 + operand2);
-                txtResult.Text = Truncate(res, 15).ToString();
+                txtResult.Text = Math.Round(res, 15).ToString();
             }
             if (ResultTxt.Contains('-'))
             {
                 res = operand1 - operand2;
-                txtResult.Text = Truncate(res, 15).ToString();
+                txtResult.Text = Math.Round(res, 15).ToString();
             }
             if (ResultTxt.Contains('*'))
             {
                 res = operand1 * operand2;
-                txtResult.Text = Truncate(res, 15).ToString();
+                txtResult.Text = Math.Round(res, 15).ToString();
             }
-                txtNumber.Text = String.Empty;
+                txtNumber.Text = string.Empty;
             condition = Condition.result;
             txtNumber.Focus(FocusState.Pointer);
         }
 
         private void btnDiv_Click(object sender, RoutedEventArgs e)
         {
-            if (txtNumber.Text != String.Empty)
+            if (txtNumber.Text != string.Empty)
             {
                 if (WrongInput())
                     return;
@@ -247,12 +236,12 @@ namespace Calculator
                 {
                     btnEq_Click(sender, e);
                     txtResult.Text += "/";
-                    txtNumber.Text = String.Empty;
+                    txtNumber.Text = string.Empty;
                 }
                 else
                 {
                     txtResult.Text = txtNumber.Text + "/";
-                    txtNumber.Text = String.Empty;
+                    txtNumber.Text = string.Empty;
                 }
             }
             else
@@ -269,8 +258,8 @@ namespace Calculator
         private void btnAC_Click(object sender, RoutedEventArgs e)
         {
             condition = Condition.none;
-            txtNumber.Text = String.Empty;
-            txtResult.Text = String.Empty;
+            txtNumber.Text = string.Empty;
+            txtResult.Text = string.Empty;
             txtNumber.Focus(FocusState.Pointer);
         }
     }
