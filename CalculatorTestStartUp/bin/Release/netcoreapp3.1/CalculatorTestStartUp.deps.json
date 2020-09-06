@@ -1,0 +1,75 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "CalculatorTestStartUp/1.0.0": {
+        "dependencies": {
+          "CalculatorTestAutomation": "1.0.0"
+        },
+        "runtime": {
+          "CalculatorTestStartUp.dll": {}
+        }
+      },
+      "CalculatorTestAutomation/1.0.0": {
+        "runtime": {
+          "CalculatorTestAutomation.dll": {}
+        }
+      },
+      "Microsoft.VisualStudio.TestPlatform.TestFramework/14.0.0.0": {
+        "runtime": {
+          "Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {
+            "assemblyVersion": "14.0.0.0",
+            "fileVersion": "14.0.4701.2"
+          }
+        }
+      },
+      "WebDriver/3.141.0.0": {
+        "runtime": {
+          "WebDriver.dll": {
+            "assemblyVersion": "3.141.0.0",
+            "fileVersion": "3.141.0.0"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions/14.0.0.0": {
+        "runtime": {
+          "Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll": {
+            "assemblyVersion": "14.0.0.0",
+            "fileVersion": "14.0.4701.2"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CalculatorTestStartUp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CalculatorTestAutomation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.VisualStudio.TestPlatform.TestFramework/14.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WebDriver/3.141.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions/14.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

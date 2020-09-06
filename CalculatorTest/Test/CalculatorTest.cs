@@ -9,17 +9,16 @@ namespace CalculatorTesting
 {
     class CalculatorTest
     {
-        protected static RemoteWebDriver AppSession;
-        protected static CultureInfo Culture = CultureInfo.GetCultureInfo("en-US");
-        protected TimeSpan TimeToWait = TimeSpan.FromSeconds(1);
-        protected static IWebElement InputField;
-        protected static IWebElement ResultField;
+        private RemoteWebDriver AppSession { get; set; }
+        private IWebElement InputField { get; set; }
+        private IWebElement ResultField { get; set; }
+
+        private CultureInfo Culture = CultureInfo.GetCultureInfo("en-US");
+        private TimeSpan TimeToWait = TimeSpan.FromSeconds(5);
         Random random = new Random();
-        Calculator calculator = new Calculator();
 
         public CalculatorTest(RemoteWebDriver appSession)
         {
-
             AppSession = appSession;
             InputField = AppSession.FindElementByName("txtNumber");
             ResultField = AppSession.FindElementByName("txtResult");
@@ -47,7 +46,7 @@ namespace CalculatorTesting
             txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double digitResult = calculator.Sum(operand1, operand2);
+            double digitResult = Calculator.Sum(operand1, operand2);
             string expectedResult = digitResult.ToString(Culture);
             Assert.AreEqual(expectedResult, txtResultTextElement.Text);
             ResultField.Clear();
@@ -75,7 +74,7 @@ namespace CalculatorTesting
             txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double digitResult = calculator.Difference(operand1, operand2);
+            double digitResult = Calculator.Difference(operand1, operand2);
             string expectedResult = digitResult.ToString(Culture);
             Assert.AreEqual(expectedResult, txtResultTextElement.Text);
             ResultField.Clear();
@@ -103,7 +102,7 @@ namespace CalculatorTesting
             txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double digitResult = calculator.Multiplication(operand1, operand2);
+            double digitResult = Calculator.Multiplication(operand1, operand2);
             string expectedResult = digitResult.ToString(Culture);
             Assert.AreEqual(expectedResult, txtResultTextElement.Text);
             ResultField.Clear();
@@ -131,7 +130,7 @@ namespace CalculatorTesting
             txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double digitResult = calculator.Division(operand1, operand2);
+            double digitResult = Calculator.Division(operand1, operand2);
             string expectedResult = digitResult.ToString(Culture);
             Assert.AreEqual(expectedResult, txtResultTextElement.Text);
             ResultField.Clear();
@@ -175,7 +174,7 @@ namespace CalculatorTesting
             txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double digitResult = calculator.Square(operand);
+            double digitResult = Calculator.Square(operand);
             string expectedResult = digitResult.ToString(Culture);
             Assert.AreEqual(expectedResult, txtResultTextElement.Text);
             ResultField.Clear();
@@ -229,7 +228,7 @@ namespace CalculatorTesting
             txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double digitResult = calculator.Sum(operand1, operand2);
+            double digitResult = Calculator.Sum(operand1, operand2);
             string expectedResult = digitResult.ToString(Culture) + '*';
             Assert.AreEqual(expectedResult, txtResultTextElement.Text);
             ResultField.Clear();
@@ -257,7 +256,7 @@ namespace CalculatorTesting
             txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double digitResult = calculator.Square(calculator.Sum(operand1, operand2));
+            double digitResult = Calculator.Square(Calculator.Sum(operand1, operand2));
             string expectedResult = digitResult.ToString(Culture);
             Assert.AreEqual(expectedResult, txtResultTextElement.Text);
             ResultField.Clear();
@@ -280,7 +279,7 @@ namespace CalculatorTesting
             txtResultTextElement = ResultField as RemoteWebElement;
             Assert.IsNotNull(txtResultTextElement);
 
-            double digitResult = calculator.Square(calculator.Square(operand));
+            double digitResult = Calculator.Square(Calculator.Square(operand));
             string expectedResult = digitResult.ToString(Culture);
             Assert.AreEqual(expectedResult, txtResultTextElement.Text);
             ResultField.Clear();
